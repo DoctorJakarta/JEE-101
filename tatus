@@ -1,0 +1,52 @@
+[1mdiff --git a/WebContent/WEB-INF/web.xml b/WebContent/WEB-INF/web.xml[m
+[1mindex 55dd626..a491394 100644[m
+[1m--- a/WebContent/WEB-INF/web.xml[m
+[1m+++ b/WebContent/WEB-INF/web.xml[m
+[36m@@ -14,8 +14,34 @@[m
+         <servlet-name>JerseyRESTServices</servlet-name>[m
+         <url-pattern>/api/v1.0/*</url-pattern>[m
+     </servlet-mapping>[m
+[31m-    [m
+[31m-    [m
+[32m+[m[41m [m
+[32m+[m[41m [m	[32m<filter>[m
+[32m+[m[41m [m		[32m<!-- For Recommended API HTTP Security Headers see: https://observatory.mozilla.org/faq/ -->[m
+[32m+[m[41m [m		[32m<filter-name>SetResponseHeaders</filter-name>[m
+[32m+[m[41m [m		[32m<filter-class>net.jakartaee.tutorial.jee101.app.ResponseHeaderFilter</filter-class>[m
+[32m+[m[41m [m		[32m<init-param>[m
+[32m+[m[41m [m			[32m<param-name>Cache-Control</param-name>[m
+[32m+[m[41m [m			[32m<param-value>no-store</param-value>[m
+[32m+[m[41m [m		[32m</init-param>[m
+[32m+[m[41m  [m		[32m<init-param>[m
+[32m+[m[41m [m			[32m<param-name>Content-Security-Policy</param-name>[m
+[32m+[m[41m [m			[32m<param-value>default-src 'none'; frame-ancestors 'none'</param-value>[m
+[32m+[m[41m [m		[32m</init-param>[m
+[32m+[m[41m [m		[32m<init-param>[m
+[32m+[m[41m [m			[32m<param-name>Strict-Transport-Security</param-name>[m
+[32m+[m[41m [m			[32m<param-value>max-age=63072000</param-value>[m
+[32m+[m[41m [m		[32m</init-param>[m
+[32m+[m[41m [m		[32m<init-param>[m
+[32m+[m[41m [m			[32m<param-name>X-Content-Type-Options</param-name>[m
+[32m+[m[41m [m			[32m<param-value>nosniff</param-value>[m
+[32m+[m[41m [m		[32m</init-param>[m
+[32m+[m[41m [m	[32m</filter>[m[41m   [m
+[32m+[m	[32m<filter-mapping>[m
+[32m+[m		[32m<filter-name>SetResponseHeaders</filter-name>[m
+[32m+[m		[32m<url-pattern>/api/v1.0/*</url-pattern>[m
+[32m+[m	[32m</filter-mapping>[m
+[32m+[m[41m 	[m
+[32m+[m[41m 		       [m
+ 	<filter>[m
+ 		<filter-name>CorsFilter</filter-name>[m
+ 		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>[m
+[36m@@ -48,8 +74,7 @@[m
+ 		<filter-name>CorsFilter</filter-name>[m
+ 		<url-pattern>/*</url-pattern>[m
+ 	</filter-mapping>[m
+[31m-    [m
+[31m-    [m
+[31m-    [m
+[32m+[m[41m	[m
+[32m+[m
+ </web-app>[m
+ [m

@@ -12,7 +12,7 @@ import net.jakartaee.tutorial.jee101.model.Greeting.VARIANT;
 @Path("hello")
 public class HelloResource {
 
-    
+    // TODO: Add parameter name with default value
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getJSON() {

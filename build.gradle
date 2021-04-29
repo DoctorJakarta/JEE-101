@@ -13,6 +13,9 @@ dependencies {
 	compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.31'
 	compile 'org.glassfish.jersey.core:jersey-common:2.31'
 	compile 'org.glassfish.jersey.inject:jersey-hk2:2.31'
+	
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'					// Neccessary for Servlet Filter 
+	
 }
 
 
