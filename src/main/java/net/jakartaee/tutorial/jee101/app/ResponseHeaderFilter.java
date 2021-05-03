@@ -31,7 +31,14 @@ public class ResponseHeaderFilter implements Filter {
 		while ( e.hasMoreElements() ) {
 			String name = (String) e.nextElement();
 			String value = initParams.getInitParameter(name);
-			newResponse.addHeader(name, value);
+			if ( "Strict-Transport-Security".equalsIgnoreCase(name)) {
+									// An HSTS Host MUST NOT include the STS header field in HTTP responses conveyed over non-secure transport.
+									// https://tools.ietf.org/html/rfc6797
+				if (request.isSecure()) newResponse.addHeader(name, value);					
+			}
+			else {
+				newResponse.addHeader(name, value);				
+			}
 		}
 		
 		chain.doFilter(request, response);
